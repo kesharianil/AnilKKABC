@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\Airline.UnitTest\\Airline.UnitTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\AirLine.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\AirLine.API.csproj",
+        "projectName": "AirLine.API",
+        "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\AirLine.API.csproj",
+        "packagesPath": "C:\\Users\\anil.keshari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anil.keshari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj": {
+                "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "DnsClient": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.1, )"
+            },
+            "NLog.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "System.Diagnostics.Contracts": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj",
+        "projectName": "AirLine.Model",
+        "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj",
+        "packagesPath": "C:\\Users\\anil.keshari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anil.keshari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\Airline.UnitTest\\Airline.UnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\Airline.UnitTest\\Airline.UnitTest.csproj",
+        "projectName": "Airline.UnitTest",
+        "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\Airline.UnitTest\\Airline.UnitTest.csproj",
+        "packagesPath": "C:\\Users\\anil.keshari\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\Airline.UnitTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\anil.keshari\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\AirLine.API.csproj": {
+                "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.API\\AirLine.API.csproj"
+              },
+              "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj": {
+                "projectPath": "C:\\Users\\anil.keshari\\Desktop\\Assignment\\Assignment1\\AirLine_Project\\AirLine.Web\\AirLine.Model\\AirLine.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

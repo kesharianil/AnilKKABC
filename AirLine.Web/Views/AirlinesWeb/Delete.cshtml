@@ -1,0 +1,46 @@
+﻿@model AirLine.Model.CreateAirlineModel
+
+@*@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+<h2>Deleting Airline</h2>
+
+<h3>Would you like to continue?</h3>
+<div class="container p-3 my-3 border">
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.AirlineName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.AirlineName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.FromCity)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FromCity)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.ToCity)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.ToCity)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Fare)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Fare)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteData" method="post">
+        @*<input type="hidden" asp-for="EmployeeId" />*@
+        @Html.HiddenFor(model => model.AirlineId)
+        <input class="btn btn-primary" type="submit" value="Yes" />
+        <a class="btn btn-danger" asp-action="GetAirlineList">No</a>
+    </form>
+</div>

@@ -1,0 +1,123 @@
+﻿@*using AirLine.Model.Data*@
+@model IEnumerable<AirLine.Model.AspnetUserProp>
+@{
+    Layout = null;
+}
+
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        @if (Model != null)
+        {
+            <table class="table table-responsive" id="tableapprove" style="width:400px">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.userName)
+                        </th>
+                        <th>Is Approved</th>
+                        @* <th>Action</th>*@
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    var status = "null";
+                    var tooptip = string.Empty;
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.HiddenFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userName)
+                            </td>
+                            <td class="text-center">
+
+                                @if (item.isApprove == true)
+                                {
+                                    status = "true";
+                                    tooptip = "Click For Unapprove Role";
+                                }
+                                else
+                                {
+                                    status = "false";
+                                    tooptip = "Click For approve Role";
+                                }
+                                @* <a class="btn btn-outline-success btn" onclick="ApproveUsersFun(@item.userName,@item.Id)" title="@tooptip">@status</a>*@
+                                <input type="button" value="@status" title="@tooptip" onclick="ApproveUsersFun('@item.userName','@item.Id');" />
+                                @* </td>
+                        <td class="text-center">*@
+                                @* <a asp-action="RejectApprove" asp-controller="AirlinesWeb" class="btn btn-outline-danger btn" asp-route-userName="@item.userName">Reject</a>*@
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        }
+        else
+        {
+            <b>No Data Fund</b>
+        }
+    </div>
+</div>
+
+@*data-toggle="tooltip"*@
+@*asp-route-userName="@item.userName"*@
+@*asp-action="UpdateApprove" asp-controller="AirlinesWeb"*@
+@*onclick="selectedapprovefun(" @item.userName")"*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+@*<script src="~/jqueryui/jquery-ui.js"></script>*@
+@*<script src="~/jqueryui/jquery-ui.min.js"></script>*@
+
+@if (ViewBag.statusMessage != null)
+{
+    <script>
+        alert("@ViewBag.statusMessage");
+    </script>
+}
+<script>
+    //$('[data-toggle="tooltip"]').tooltip();
+    function ApproveUsersFun(userName, Id) {
+        debugger;
+        if (userName != "" && Id != "") {
+            $.ajax({
+                type: 'PUT',
+                url: '/AirlinesWeb/UpdateApprove',
+                //data: 'userName=' + userName + 'id=' + Id,
+                data: { userName: userName, id: Id },
+                success: function (data) {
+                    debugger;
+                    alert(data);
+                }
+            });
+        }
+        else {
+            alert("user name can't null");
+        }
+    }
+                                                    //$("#tableapprove tbody").on('click', '#btnApprove', function () {
+                                                    //    debugger;
+                                                    //    var currow = $(this).closest('tr');
+                                                    //    var email = currow.find('td:eq(0)').text().trim();
+
+                                                    //    var userName = email;
+                                                    //    if (!userName == "") {
+                                                    //        $.ajax({
+                                                    //            type: 'PUT',
+                                                    //            url: '/AirlinesWeb/UpdateApprove',
+                                                    //            data: 'userName=' + userName,
+                                                    //            success: function (data) {
+                                                    //                debugger;
+                                                    //                alert(data);
+                                                    //            }
+                                                    //        });
+                                                    //    }
+                                                    //    else {
+                                                    //        alert("user name can't null");
+                                                    //    }
+                                                    //});
+
+</script>

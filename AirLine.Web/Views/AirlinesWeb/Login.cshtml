@@ -1,0 +1,121 @@
+﻿@model AirLine.Model.LoginModel;
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #17a2b8;
+        height: 100vh;
+    }
+
+    #login .container #login-row #login-column #login-box {
+        margin-top: 120px;
+        max-width: 600px;
+        height: 320px;
+        border: 1px solid #9C9C9C;
+        background-color: #EAEAEA;
+    }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+            #login .container #login-row #login-column #login-box #login-form #register-link {
+                margin-top: -85px;
+            }
+</style>
+
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" method="post" asp-action="Login">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label asp-for="EmailId"  class="lable-control"></label>
+                                <input asp-for="EmailId" id="txtEmailId" maxlength="50" class="form-control" />
+                                <span asp-validation-for="EmailId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password" class="lable-control"></label>
+                                <input asp-for="Password" id="txtPassword" type="password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                <input type="submit" id="btnLogin" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            @* <div id="register-link" style="text-align:left;margin-top:29px" class="text-left">
+                            <a href=@Url.Action("GetApproveList", "AirlinesWeb") class="text-info">Approve User</a>
+                            </div>*@
+                            <div id="register-link" style="text-align:right;margin-top:-23px" class="text-right">
+                                <a href=@Url.Action("Register", "AirlinesWeb") class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@*action="" method="post" data-ajax="true" data-ajax-complete="completed" data-ajax-failure="failed"*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+@if (ViewBag.statusMessage != null)
+{
+    <script>
+        alert("@ViewBag.statusMessage");
+    </script>
+}
+@if (ViewBag.statusMessage != null)
+{
+
+}
+<script>
+    //$(document).ready(function () {
+    //    callHarCodeAdminRole();
+    //});
+    function callHarCodeAdminRole() {
+        $.ajax({
+            type: 'POST',
+            url: '/AirlinesWeb/HardCodeRegister',
+            data: {},
+            success: function (data) {
+                debugger;
+                //alert("Login Successfully");
+            }
+        });
+    }
+    //$(document).on('click', '#btnLogin', function () {
+    //    debugger;
+    //    var model = {
+    //        EmailId: $("#txtEmailId").val(),
+    //        Password: $("#txtPassword").val(),
+    //    };
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: '/AirlinesWeb/Login',
+    //        data: { loginModel: model },
+    //        success: function (data) {
+    //            debugger;
+    //            if (data == "OK") {
+    //                //swal("Employee Save Successfully!!");
+    //                //setTimeout(function () {
+    //                //    window.location.href = '/EmployeeWeb/EmployeeList';
+    //                //}, 2000);
+    //            }
+    //            else {
+    //                //swal("Something is wrongs");
+    //            }
+    //        }
+    //    });
+    //});
+</script>
+

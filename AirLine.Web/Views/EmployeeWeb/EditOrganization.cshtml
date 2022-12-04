@@ -1,0 +1,37 @@
+﻿@model AirLine.Model.EmpolyeeOrganization
+
+<div class="container p-3 my-3 border">
+    <h1>Edit Organization</h1>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <hr />
+            <form asp-action="UpdateOrganization" asp-controller="EmployeeWeb" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="FEmployeeId" />
+                <div class="form-group">
+                    <label asp-for="OrganizationName" class="control-label"></label>
+                    <input asp-for="OrganizationName"  class="form-control" />
+                    <span asp-validation-for="OrganizationName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FromDate" class="control-label"></label>
+                    <input asp-for="FromDate" type="date" class="form-control" />
+                    <span asp-validation-for="FromDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ToDate" class="control-label"></label>
+                    <input asp-for="ToDate" type="date" class="form-control" />
+                    <span asp-validation-for="ToDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Save" />
+                    <a class="btn btn-danger" asp-controller="EmployeeWeb" asp-action="EmployeeList">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+

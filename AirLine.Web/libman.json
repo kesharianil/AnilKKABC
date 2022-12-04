@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery-ajax-unobtrusive@3.2.6",
+      "destination": "wwwroot/jquery-ajax-unobtrusive/"
+    },
+    {
+      "library": "datepicker@1.0.10",
+      "destination": "wwwroot/datepicker/"
+    },
+    {
+      "library": "bootstrap-sweetalert@1.0.1",
+      "destination": "wwwroot/bootstrap-sweetalert/"
+    },
+    {
+      "library": "datatable@2.0.2",
+      "destination": "wwwroot/datatable/"
+    },
+    {
+      "library": "jqueryui@1.13.2",
+      "destination": "wwwroot/jqueryui/"
+    }
+  ]
+}

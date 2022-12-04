@@ -1,0 +1,176 @@
+﻿@model AirLine.Model.IdentityUserProp;
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #17a2b8;
+        height: 100vh;
+    }
+
+    #login .container #login-row #login-column #login-box {
+        margin-top: 120px;
+        max-width: 600px;
+        height: 320px;
+        border: 1px solid #9C9C9C;
+        background-color: #EAEAEA;
+    }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+            #login .container #login-row #login-column #login-box #login-form #register-link {
+                margin-top: -85px;
+            }
+</style>
+
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-12">
+                    <div id="login-box" class="col-md-12">
+                        <form asp-controller="" asp-action="Register" method="post">
+                            <h3 class="text-center text-info">Register</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="EmailId" class="lable-control"></label>
+                                        <input asp-for="EmailId" autocomplete="off" id="EmailId" onblur="return CkeckUserNameNameValid()" class="form-control" />
+                                        <span asp-validation-for="EmailId" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="PanNo" class="lable-control"></label>
+                                        <input asp-for="PanNo" id="txtPanNo" onblur="return PanBlurCityValidation()" class="form-control" />
+                                        <span asp-validation-for="PanNo" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Password" class="lable-control"></label>
+                                        <input asp-for="Password" id="txtPassword" onblur="return PasswordBlurValidation()" class="form-control" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword" class="lable-control"></label>
+                                        <input asp-for="ConfirmPassword" id="txtConfirmPassword" onblur="return ConfirmPasswordValidation()" class="form-control" />
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary rounded-0">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@if (ViewBag.registerMessage != null)
+{
+    <script>
+        alert("@ViewBag.registerMessage");
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+
+    function EmailBlurValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#EmailId').val()) {
+            if ($("#EmailId").next(".validation").length == 0) {
+                $("#EmailId").after("<div class='validation' style='color:red;'>Email is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#airlinename").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function PanBlurCityValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#txtPanNo').val()) {
+            if ($("#txtPanNo").next(".validation").length == 0) {
+                $("#txtPanNo").after("<div class='validation' style='color:red;'>Pan No is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#txtPanNo").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function PasswordBlurValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#txtPassword').val()) {
+            if ($("#txtPassword").next(".validation").length == 0) {
+                $("#txtPassword").after("<div class='validation' style='color:red;'>Password is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#txtPassword").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function ConfirmPasswordValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#txtConfirmPassword').val()) {
+            if ($("#txtConfirmPassword").next(".validation").length == 0) {
+                $("#txtConfirmPassword").after("<div class='validation' style='color:red;'>Confirm Password is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#txtConfirmPassword").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+
+    function CkeckUserNameNameValid() {
+        debugger;
+        var UserName = $("#EmailId").val();
+        if (!UserName == "") {
+            $.ajax({
+                type: 'GET',
+                url: '/AirlinesWeb/CheckUserNameExit',
+                data: 'userName=' + UserName,
+                success: function (data) {
+                    debugger;
+                    alert(data);
+                }
+            });
+        }
+        else {
+            alert("User Name can't null");
+        }
+    }
+
+</script>

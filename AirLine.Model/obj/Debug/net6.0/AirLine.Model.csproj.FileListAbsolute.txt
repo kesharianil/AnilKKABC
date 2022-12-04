@@ -1,0 +1,12 @@
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\bin\Debug\net6.0\AirLine.Model.deps.json
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\bin\Debug\net6.0\AirLine.Model.dll
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\bin\Debug\net6.0\AirLine.Model.pdb
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.csproj.AssemblyReference.cache
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.AssemblyInfoInputs.cache
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.AssemblyInfo.cs
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.csproj.CoreCompileInputs.cache
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.dll
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\refint\AirLine.Model.dll
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\AirLine.Model.pdb
+C:\Users\anil.keshari\Desktop\Assignment\Assignment1\AirLine_Project\AirLine.Web\AirLine.Model\obj\Debug\net6.0\ref\AirLine.Model.dll

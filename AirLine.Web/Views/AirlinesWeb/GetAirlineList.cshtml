@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AirLine.Model.CreateAirlineModel>
+
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <table class="table table-responsive" style="width:400px">
+            <tr>
+                <th>S.NO</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AirlineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fare)
+                </th>
+                <th>Edit Action</th>
+                <th>Details Action</th>
+                <th>Delete Action</th>
+            </tr>
+            @if (Model != null)
+            {
+                int count = 0;
+                @foreach (var item in Model)
+                {
+                    //count += count;
+                    <tr>
+                        <td>@count</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AirlineName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FromCity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ToCity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fare)
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-controller="AirlinesWeb" class="btn btn-outline-primary" asp-route-employeeId="@item.AirlineId">Edit</a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Details" class="btn btn-outline-info" asp-route-employeeId="@item.AirlineId">Details</a>
+                        </td>
+                        <td class="text-center">
+                            <a asp-action="Delete" class="btn btn-outline-danger" asp-route-employeeId="@item.AirlineId">Delete</a>
+                        </td>
+                    </tr>
+                    count++;
+                }
+            }
+           @* else
+            {
+                <b>No Data Available!!</b>
+            }*@
+        </table>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#liaCreateAirLine').css('display', 'block');
+    $('#liairlineList').css('display', 'block');
+            //$('#libEmployeeList').css('display', 'block');
+</script>

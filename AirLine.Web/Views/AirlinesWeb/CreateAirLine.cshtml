@@ -1,0 +1,171 @@
+﻿@model AirLine.Model.CreateAirlineModel;
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #17a2b8;
+        height: 100vh;
+    }
+
+    #login .container #login-row #login-column #login-box {
+        margin-top: 120px;
+        max-width: 600px;
+        height: 500px;
+        border: 1px solid #9C9C9C;
+        background-color: #EAEAEA;
+    }
+
+        #login .container #login-row #login-column #login-box #login-form {
+            padding: 20px;
+        }
+
+            #login .container #login-row #login-column #login-box #login-form #register-link {
+                margin-top: -85px;
+            }
+</style>
+
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-12">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" asp-controller="AirlinesWeb" asp-action="CreateAirline" method="post">
+                            <h3 class="text-center text-info">Create AirLine</h3>
+                            <div class="form-group">
+                                <label asp-for="AirlineName" class="lable-control"></label>
+                                <input asp-for="AirlineName" autocomplete="off" onblur="return CkeckAirLineName()" id="airlinename" class="form-control" />
+                                <span asp-validation-for="AirlineName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FromCity" class="lable-control"></label>
+                                <input asp-for="FromCity" id="FromCity" onblur="return FromCityValidation()" class="form-control" />
+                                <span asp-validation-for="FromCity" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ToCity" class="lable-control"></label>
+                                <input asp-for="ToCity" id="ToCity" onblur="return ToCityValidation()" class="form-control" />
+                                <span asp-validation-for="ToCity" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Fare" class="lable-control"></label>
+                                <input asp-for="Fare" id="Fare" type="number" onblur="return FareValidation()" class="form-control" />
+                                <span asp-validation-for="Fare" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                 <a class="btn btn-danger" asp-controller="AirlinesWeb" asp-action="GetAirlineList">Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+
+    function NameValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#airlinename').val()) {
+            if ($("#airlinename").next(".validation").length == 0) {
+                $("#airlinename").after("<div class='validation' style='color:red;'>Name is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#airlinename").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function FromCityValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#FromCity').val()) {
+            if ($("#FromCity").next(".validation").length == 0) {
+                $("#FromCity").after("<div class='validation' style='color:red;'>From City is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#FromCity").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function ToCityValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#ToCity').val()) {
+            if ($("#ToCity").next(".validation").length == 0) {
+                $("#ToCity").after("<div class='validation' style='color:red;'>To City is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#airlinename").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+    function FareValidation() {
+        debugger;
+        var isvalid = true;
+        if (!$('#Fare').val()) {
+            if ($("#Fare").next(".validation").length == 0) {
+                $("#Fare").after("<div class='validation' style='color:red;'>Fare is Required</div>");
+            }
+            isvalid = false;
+        } else {
+            $("#Fare").next(".validation").remove();
+            isvalid = true;
+        }
+        return isvalid;
+    }
+
+    $("#airlinename").keypress(function (e) {
+        var key = e.keyCode;
+        if (key >= 48 && key <= 57) {
+            e.preventDefault();
+        }
+    });
+    $("#FromCity").keypress(function (e) {
+        var key = e.keyCode;
+        if (key >= 48 && key <= 57) {
+            e.preventDefault();
+        }
+    });
+    $("#ToCity").keypress(function (e) {
+        var key = e.keyCode;
+        if (key >= 48 && key <= 57) {
+            e.preventDefault();
+        }
+    });
+
+
+    function CkeckAirLineName() {
+        debugger;
+        var airlineName = $("#airlinename").val();
+        if (!airlineName == "") {
+            $.ajax({
+                type: 'GET',
+                url: '/AirlinesWeb/CkeckAirLineUserName',
+                data: 'airlineName=' + airlineName,
+                success: function (data) {
+                    debugger;
+                    alert(data);
+                }
+            });
+        }
+        else {
+            alert("AirLine name can't null");
+        }
+    }
+    $('#liaCreateAirLine').css('display', 'block');
+    $('#liairlineList').css('display', 'block');
+</script>

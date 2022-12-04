@@ -1,0 +1,114 @@
+﻿@model IEnumerable<AirLine.Model.EmpolyeeOrganization>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" style="min-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title" id="myModalLabel" data-color="#c32361"><i class="fa fa-list"></i> Organization List</h5>
+                <button type="button" class="close" id="btnCrossClose" data-dismiss="modal">
+                    <span aria-hidden="true" data-dismiss="modal" class="">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height:350px;" data-dismiss="modal">
+                <div class="col-md-12 col-lg-12 col-sm-12 mb-30" style="height:300px;overflow-y:auto">
+                    <table class="table display responsive  table-style-2">
+                        <thead style="text-align:center">
+                            <tr>
+                                <th>S.NO</th>
+                                <th></th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OrganizationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.FromDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ToDate)
+                                </th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodysegment" style="text-align:center">
+                            @if (Model != null)
+                            {
+                                int count = 0;
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>
+                                            @Html.HiddenFor(modelItem => item.FEmployeeId, new { @id = "FEmployeeId" })
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.OrganizationName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FromDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ToDate)
+                                        </td>
+                                        <td class="text-center">
+                                            <a asp-action="EditOrganization" asp-controller="EmployeeWeb" class="btn btn-outline-primary" asp-route-employeeId="@item.Id">Edit</a>
+                                        </td>
+                                        <td class="text-center">
+                                           @* <a asp-action="" class="btn btn-outline-danger" asp-route-employeeId="@item.Id">Delete</a>*@
+                                            <input type="button" onclick="deleteOrganization(@item.Id)" value="Delete" class="btn btn-outline-danger" asp-route-employeeId="@item.Id">
+                                        </td>
+                                    </tr>
+                                    count++;
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btnClose" data-dismiss="modal"><i class="icon-copy fa fa-close" aria-hidden="true"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("click", "#btnClose", function () {
+            $('#myModal').modal('hide');
+        });
+        $(document).on("click", "#btnCrossClose", function () {
+            $('#myModal').modal('hide');
+        });
+
+        //$('#tblSegment').dataTable();
+        //$('#datatable-keytable').DataTable({
+        //    keys: false
+        //});
+        //$('#datatable-responsive').DataTable();
+        //$('#datatable-scroller').DataTable({
+        //    ajax: "js/datatables/json/scroller-demo.json",
+        //    deferRender: true,
+        //    scrollY: 380,
+        //    scrollCollapse: true,
+        //    scroller: true
+        //});
+        //var table = $('#datatable-fixed-header').DataTable({
+        //    fixedHeader: true
+        //});
+    });
+    //$("#bodysegment").on('click', 'tr', function () {
+    //    debugger;
+    //    var cells = $(this).children("td").map(function () {
+    //        return $(this).text();
+    //    }).get();
+    //    var code = $.trim(cells[0]);
+    //    var name = $.trim(cells[1]);
+    //    $("#txtdtSegmentcode").val(code.trim());
+    //    $("#txtdtSegmentName").val(name.trim());
+    //    $("#bodysegment").attr('data-dismiss', 'modal')      
+    //    //$('#SegmentModel').modal('hide');
+    //    //$('.table table-bordered').dataTable().fnDestroy();  
+    //    //$('#SegmentModel').modal('hide').data('bs.modal', null);
+    //});
+</script>
+*@

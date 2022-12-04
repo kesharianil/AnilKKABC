@@ -1,0 +1,158 @@
+﻿@model AirLine.Model.Employee;
+<style>
+    #ajaxSpinnerImage {
+        display: none;
+    }
+</style>
+
+<div id="ajaxSpinnerContainer">
+    <img src="~/images/loader.jpg" id="ajaxSpinnerImage" title="working..." />
+</div>
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-12">
+                    <div id="login-box" class="col-md-12">
+                        <form class="form" id="AddEmployeeForm" method="post">
+                            @* @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "AddEmployeeForm" }))
+                            {*@
+                            <h3 class="text-center text-info">Add Employee</h3>
+                            <div class="form-group">
+                                <label asp-for="Name" class="lable-control"></label>
+                                <input asp-for="Name" autocomplete="off" onwaiting="CheckEmployeePhoneValid()" id="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address" class="lable-control"></label>
+                                <input asp-for="Address" id="address" class="form-control" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>  
+                            <div class="form-group">
+                                <label asp-for="PhoneNo" class="lable-control"></label>
+                                <input asp-for="PhoneNo" max="10" maxlength="10" id="ToPhoneNo" onblur="return CheckEmployeePhoneValid()" class="form-control" />
+                                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="btnEmployeeForm" name="submit" onclick="Validate(this, event);" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            @*  }*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@*asp-controller="EmployeeWeb" asp-action="AddEmployee"*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $('#ToPhoneNo').keypress(function (e) {
+        var charCode = (e.which) ? e.which : event.keyCode
+
+        if (String.fromCharCode(charCode).match(/[^0-9]/g))
+
+            return false;
+    });
+    function validateData() {
+
+        if ($("#Name").val() == "") {
+            swal("Please enter Name !");
+            return false;
+        }
+        else if ($("#address").val() == "") {
+            swal("Please enter address !");
+            return false;
+        }
+        else if ($("#ToPhoneNo").val() == "") {
+            swal("Please enter phone no !");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    //window.addEventListener('load', function () {
+    function Validate(ctl, event) {
+        event.preventDefault();
+        swal({
+            title: "Do you want to save it?",
+            text: "Please check Information before Submiting!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Save",
+            cancelButtonText: "Cancel",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    if (validateData() == true) {
+                        debugger;
+                        //$("#AddEmployeeForm").submit();
+                        var model = {
+                            Name: $("#Name").val(),
+                            Address: $("#address").val(),
+                            PhoneNo: $("#ToPhoneNo").val(),
+                        };
+                        $.ajax({
+                            type: 'POST',
+                            url: '/EmployeeWeb/AddEmployee',
+                            data: { employee: model },
+                            //beforeSend: function () {
+                            //    $('#ajaxSpinnerImage').show();
+                            //},
+                            //complete: function () {
+                            //    $('#ajaxSpinnerImage').hide();
+                            //},
+                            success: function (data) {
+                                debugger;
+                                if (data == "OK") {
+                                    swal("Employee Save Successfully!!");
+                                    setTimeout(function () {
+                                        window.location.href = '/EmployeeWeb/EmployeeList';
+                                    }, 2000);
+                                }
+                                else {
+                                    swal("Something is wrongs");
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    swal("Cancelled", "You have Cancelled Form Submission!", "error");
+                }
+            })
+    }
+    //})
+
+    function CheckEmployeePhoneValid() {
+        debugger;
+        var PhoneNo = $("#ToPhoneNo").val();
+        if (!PhoneNo == "") {
+            $.ajax({
+                type: 'GET',
+                url: '/EmployeeWeb/CheckWetherEmployeePhoneExist',
+                data: 'phoneNo=' + PhoneNo,
+                success: function (data) {
+                    debugger;
+                    if (data == "phone no is already exists!!") {
+                        swal(data);
+                        $('#ToPhoneNo').val('');
+                        return false;
+                    }
+                    else {
+                        swal(data);
+                        return true;
+                    }
+                }
+            });
+        }
+        else {
+            swal("Organization Name is Required !");
+        }
+        return false;
+    }
+
+</script>

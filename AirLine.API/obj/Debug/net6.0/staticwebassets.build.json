@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Tx4HeRVW+C4YZrsqhc3g42D3N692Dr1X+WbEtSYqNTk=",
+  "Source": "AirLine.API",
+  "BasePath": "_content/AirLine.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
